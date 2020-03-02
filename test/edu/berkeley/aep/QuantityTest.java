@@ -67,4 +67,18 @@ public class QuantityTest {
         var oneOz = new Quantity(1, Unit.OZ);
         assertEquals(new Quantity(12, Unit.TSP), twoTbsp.add(oneOz));
     }
+
+    @Test
+    public void twoHundredAndTwelveFahrenheitShouldEqualOneHundredCelsius() {
+        var twoHundredTwelveFahrenheit = new Quantity(212, Unit.FAHRENHEIT);
+        var oneHundredCelsius = new Quantity(100, Unit.CELSIUS);
+        assertEquals(twoHundredTwelveFahrenheit, oneHundredCelsius);
+    }
+
+    @Test
+    public void thirtyTwoFahrenheitShouldEqualZeroCelsius() {
+        var thirtyTwoFahrenheit = new Quantity(32, Unit.FAHRENHEIT);
+        var zeroCelsius = new Quantity(0, Unit.CELSIUS);
+        assertEquals(zeroCelsius, thirtyTwoFahrenheit);
+    }
 }
