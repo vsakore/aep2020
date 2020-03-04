@@ -18,7 +18,11 @@ public class Quantity {
     }
 
     public boolean equals(Quantity other) {
-        return this.size == other.convertTo(unit);
+        try {
+            return this.size == other.convertTo(unit);
+        } catch (RuntimeException e) {
+            return false;
+        }
     }
 
     private int convertTo(Unit toUnits) {
