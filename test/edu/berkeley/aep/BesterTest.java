@@ -20,4 +20,9 @@ public class BesterTest {
     public void shouldThrowExceptionIfPassedNull() {
         assertEquals(null, new Bester(null, null).best());
     }
+
+    @Test
+    public void shouldChooseBestProbability() {
+        assertEquals(new Chance(0.5), new Bester(new Chance(0.2), new Chance(0.5)).best());
+    }
 }

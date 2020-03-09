@@ -1,7 +1,7 @@
 package edu.berkeley.aep;
 
 // Understands an amount in a given unit
-public class Quantity {
+public class Quantity implements Bestable {
     private final int size;
     private final Unit unit;
 
@@ -47,7 +47,9 @@ public class Quantity {
         return new Quantity(size + other.convertTo(unit), unit);
     }
 
-    public boolean betterThan(Quantity other) {
-        return size > other.convertTo(unit);
+    @Override
+    public boolean betterThan(Bestable other) {
+        Quantity otherQuantity = (Quantity) other;
+        return size > otherQuantity.convertTo(unit);
     }
 }

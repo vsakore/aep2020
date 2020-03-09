@@ -1,13 +1,13 @@
 package edu.berkeley.aep;
 
 public class Bester {
-    private final Quantity[] quantities;
+    private final Bestable[] quantities;
 
-    public Bester(Quantity... quantities) {
+    public Bester(Bestable... quantities) {
         this.quantities = quantities;
     }
 
-    public Quantity best() {
+    public Bestable best() {
         if (quantities == null || quantities.length == 0) throw new NullPointerException("Must pass at least one quantity!");
         var champion = quantities[0];
         for (var challenger : quantities) {
