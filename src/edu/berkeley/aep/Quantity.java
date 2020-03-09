@@ -46,4 +46,8 @@ public class Quantity {
     public Quantity add(Quantity other) {
         return new Quantity(size + other.convertTo(unit), unit);
     }
+
+    public boolean betterThan(Quantity other) {
+        return size > other.convertTo(unit);
+    }
 }
