@@ -1,16 +1,15 @@
 package edu.berkeley.aep;
 
-public class Bester {
-    private final Bestable[] quantities;
+public class Bester<T extends Bestable> {
+    private final T[] quantities;
 
-    public Bester(Bestable... quantities) {
+    public Bester(T... quantities) {
         this.quantities = quantities;
     }
 
-    public Bestable best() {
-        if (quantities == null || quantities.length == 0) throw new NullPointerException("Must pass at least one quantity!");
+    public T best() {
         var champion = quantities[0];
-        for (var challenger : quantities) {
+        for (T challenger : quantities) {
             if (challenger.betterThan(champion)) {
                 champion = challenger;
             }

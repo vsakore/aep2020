@@ -8,21 +8,14 @@ import static org.junit.Assert.assertEquals;
 public class BesterTest {
     @Test
     public void shouldChooseBestQuantity() {
-        assertEquals(new Quantity(10, FEET), new Bester(new Quantity(1, YARD), new Quantity(2, YARD), new Quantity(10, FEET)).best());
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void shouldThrowExceptionIfPassedEmptyArray() {
-        assertEquals(null, new Bester().best());
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void shouldThrowExceptionIfPassedNull() {
-        assertEquals(null, new Bester(null, null).best());
+        var bester = new Bester(new Quantity(1, YARD), new Quantity(2, YARD), new Quantity(10, FEET));
+        assertEquals(new Quantity(10, FEET), bester.best());
     }
 
     @Test
-    public void shouldChooseBestProbability() {
-        assertEquals(new Chance(0.5), new Bester(new Chance(0.2), new Chance(0.5)).best());
+    public void shouldChooseBestChance() {
+        var bester = new Bester<>(new Chance(0.5), new Chance(0.25));
+        assertEquals(new Chance(0.5), bester.best());
     }
+
 }

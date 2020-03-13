@@ -48,13 +48,6 @@ public class QuantityTest {
         assertEquals(twoTbsp, oneOz);
     }
 
-    @Test(expected = RuntimeException.class)
-    public void shouldNotBeAbleToCompareTeaspoonsAndFeet() {
-        var oneTbsp = new Quantity(1, Unit.TBSP);
-        var threeFeet = new Quantity(3, Unit.FEET);
-        assertEquals(oneTbsp, threeFeet);
-    }
-
     @Test
     public void twoInchesPlusTwoInchesShouldEqualFourInches() {
         var twoInches = new Quantity(2, Unit.INCHES);
