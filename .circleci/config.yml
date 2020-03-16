@@ -4,7 +4,6 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/openjdk:11.0.3-jdk-stretch
-
     steps:
       - checkout
       - run: ant test
